@@ -62,7 +62,7 @@ def percentage_calculation_button():
     elif allocated_cases.isnumeric() and close_cases.isnumeric() and kpi_test.isnumeric:
         percentage = 100 * float(close_cases) / float(allocated_cases)
         percentage = "{:.2f}".format(percentage)
-        percentage_calculation_output_label.config(text=str(percentage) + " %")
+        percentage_calculation_output_label.config(text=f"{str(percentage)} %")
         compare_percentage_kpi()
     else:
         showinfo(title="Wrong Input", message="Allocated & Closed Cases use a whole number"
@@ -76,17 +76,17 @@ def compare_percentage_kpi():
     kpi_s = "{:.2f}".format(float(kpi_s))
     # compare kpi to percentage
     if float(kpi_s) == float(percentage):
-        kpi_result_label.config(text="Current Performance: " + str(percentage) + "% | Expected Performance: " + kpi_s +
-                                     "% you are at expected performance", bg="yellow")
+        kpi_result_label.config(text=f"Current Performance: {str(percentage)} % "
+                                     f"| Expected Performance: {kpi_s} % you are at expected performance", bg="yellow")
     elif float(kpi_s) > float(percentage):
-        kpi_result_label.config(text="Current Performance: " + str(percentage) + "% | Expected Performance: " + kpi_s +
-                                     "% you are not meeting your requirements", bg="red")
+        kpi_result_label.config(text=f"Current Performance: {str(percentage)} % "
+                                     f"| Expected Performance: {kpi_s} % you are not meeting your requirements", bg="red")
     elif float(kpi_s) < float(percentage):
-        kpi_result_label.config(text="Current Performance: " + str(percentage) + "% | Expected Performance: " + kpi_s +
-                                     "% you are meeting your requirements", bg="green")
+        kpi_result_label.config(text=f"Current Performance: {str(percentage)} % "
+                                     f"| Expected Performance: {kpi_s} % you are meeting your requirements", bg="green")
     else:
-        kpi_result_label.config(text="Current Performance: " + str(percentage) + "% | Expected Performance: " + kpi_s +
-                                     "% bad things have happened", bg="brown")
+        kpi_result_label.config(text=f"Current Performance: {str(percentage)} % "
+                                     f"| Expected Performance: {kpi_s} % bad things have happened", bg="brown")
 
 
 def clear_button():
